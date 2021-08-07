@@ -189,7 +189,7 @@ namespace YetAnotherLiteTaskScheduler
             }
             catch (Exception ex)
             {
-                result = new ExecutionResult(SchedulerErrorCode.Success, ex);
+                result = new ExecutionResult(SchedulerErrorCode.ExceptionWhileExecutingTask, ex);
             }
 
             this.TaskExecuted(this, scheduledTask, result);
