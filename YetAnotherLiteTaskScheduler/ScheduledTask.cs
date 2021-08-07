@@ -62,7 +62,7 @@ namespace YetAnotherLiteTaskScheduler
         }
 
         /// <summary>
-        /// Reschedule Time with the give time
+        /// Reschedule Time with the given ScheduleEvery time
         /// </summary>
         public void RescheduleTask() => this.ScheduledFor = DateTime.UtcNow.AddMilliseconds(this.ScheduleEvery);
     }
