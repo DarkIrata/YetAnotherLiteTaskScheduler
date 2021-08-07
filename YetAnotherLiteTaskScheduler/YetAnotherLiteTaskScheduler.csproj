@@ -8,7 +8,7 @@
     <Product>YetAnotherLiteTaskScheduler</Product>
     <PackageProjectUrl>https://github.com/DarkIrata/YetAnotherLiteTaskScheduler</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DarkIrata/YetAnotherLiteTaskScheduler</RepositoryUrl>
-    <Version>1.0.0.0</Version>
+    <Version>1.0.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
