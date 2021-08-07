@@ -82,7 +82,7 @@ namespace YetAnotherLiteTaskScheduler
             };
 
             // ApartmentState for COM Objects is not support on linux
-            if (Helper.IsRunningOnWindows())
+            if (OSHelper.IsRunningOnWindows())
             {
                 this.executerThread.SetApartmentState(ApartmentState.MTA);
             }
