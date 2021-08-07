@@ -141,17 +141,10 @@ namespace YetAnotherLiteTaskScheduler
                         Interlocked.Increment(ref this.waitingTasks);
                         Task.Run(async () =>
                         {
-                            var sleepTime = scheduledTask.NextExecuteInMS;
-                            if (sleepTime > 0)
+                            if (scheduledTask.NextExecuteInMS > 0)
                             {
-                                try
-                                {
-                                    this.logger.LogInformation($"[{this.Name}] Delaying {sleepTime} for '{scheduledTask.Name}'");
-                                    await Task.Delay(sleepTime, this.cancellationToken);
-                                }
-                                catch (TaskCanceledException)
-                                {
-                                }
+                                this.logger.LogInformation($"[{this.Name}] Delaying {scheduledTask.NextExecuteInMS} for '{scheduledTask.Name}'");
+                                await Task.Delay(scheduledTask.NextExecuteInMS);
                             }
 
                             Interlocked.Decrement(ref this.waitingTasks);
@@ -162,7 +155,7 @@ namespace YetAnotherLiteTaskScheduler
                     }
                 }
 
-                Thread.Sleep(1000);
+                Thread.Sleep(750);
             }
 
             if (this.State != State.Crashed)
