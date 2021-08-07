@@ -16,13 +16,13 @@ namespace YetAnotherLiteTaskScheduler.Demo
             var scheduler = new ScheduleManager(new RunnerConfiguration(maxRunnerInstances: 3, tasksDividerPerRunner: 2), logger);
 
             var r = new Random();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 100; i++)
             {
-                var time = r.Next(10, 30);
+                var time = r.Next(10, 20);
                 var name = $"Test {i.ToString()}";
                 var task = new ScheduledTask(name, () =>
                 {
-                    Console.WriteLine($">>> {name} >> Running each {time}sec");
+                    Console.WriteLine($"{DateTime.UtcNow}\t\t{name} >> Running each {time}sec");
                 }, TimeSpan.FromSeconds(time).TotalMilliseconds, true);
 
                 scheduler.TryScheduleTask(task);
